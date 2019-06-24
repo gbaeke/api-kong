@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: http-ratelimit
+  namespace: default
+config:
+  second: 10
+plugin: rate-limiting

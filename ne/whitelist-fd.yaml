@@ -1,0 +1,9 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: whitelist-fd
+  namespace: default
+config:
+  whitelist: 
+  - 147.243.0.0/16
+plugin: ip-restriction

@@ -1,0 +1,19 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongIngress
+metadata:
+  name: func
+proxy:
+  protocol: http
+  path: "/api/getusers"
+  connect_timeout: 10000
+  retries: 10
+  read_timeout: 10000
+  write_timeout: 10000
+route:
+  methods:
+  - GET
+  regex_priority: 0
+  strip_path: true
+  preserve_host: true
+  protocols:
+  - https

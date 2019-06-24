@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: func
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: kong
+    plugins.konghq.com: http-auth
+spec:
+  tls:
+  - hosts:
+    - api-o-ne.baeke.info
+    secretName: wildcard-baeke.info.tls
+  rules:
+    - host: api-o-ne.baeke.info
+      http:
+        paths:
+        - path: /users
+          backend:
+            serviceName: func
+            servicePort: 80
